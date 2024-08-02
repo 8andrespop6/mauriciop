@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Áreas</title>
+</head>
+<body style="font-family: 'Arial', sans-serif; background-color: #f9f9f9; margin: 0; padding: 20px;">
+    <div style="max-width: 600px; margin: auto; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <h1 style="text-align: center; color: #333;">Calcular Áreas</h1>
+        <form action="/calcular_area" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+            <label for="figura">Seleccione una figura geométrica:</label>
+            <select id="figura" name="figura" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">
+                <option value="circulo">Círculo</option>
+                <option value="cuadrado">Cuadrado</option>
+                <option value="rectangulo">Rectángulo</option>
+                <option value="triangulo">Triángulo</option>
+            </select>
+
+            <div id="valores" style="margin-top: 15px;">
+                <!-- Campos dinámicos se agregarán aquí -->
+            </div>
+
+            <input type="submit" value="Calcular Área" style="padding: 15px; background-color: #007BFF; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+        </form>
+
+        {% if area %}
+            <h2 style="color: #333;">Resultado:</h2>
+            <p>El área del {{ figura }} es: <strong>{{ area }}</strong></p>
+        {% endif %}
+
+        {% if error %}
+            <h2 style="color: red;">Error: {{ error }}</h2>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById('figura').addEventListener('change', function() {
+            const figura = this.value;
+            const valoresDiv = document.getElementById('valores');
+            valoresDiv.innerHTML = '';
+
+            if (figura === 'circulo') {
+                valoresDiv.innerHTML = '<label for="radio">Ingrese el radio:</label><input type="text" id="radio" name="radio" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">';
+            } else if (figura === 'cuadrado') {
+                valoresDiv.innerHTML = '<label for="lado">Ingrese el lado:</label><input type="text" id="lado" name="lado" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">';
+            } else if (figura === 'rectangulo') {
+                valoresDiv.innerHTML = '<label for="largo">Ingrese el largo:</label><input type="text" id="largo" name="largo" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;"><br><br><label for="ancho">Ingrese el ancho:</label><input type="text" id="ancho" name="ancho" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">';
+            } else if (figura === 'triangulo') {
+                valoresDiv.innerHTML = '<label for="base">Ingrese la base:</label><input type="text" id="base" name="base" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;"><br><br><label for="altura">Ingrese la altura:</label><input type="text" id="altura" name="altura" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Precios</title>
+</head>
+<body style="font-family: 'Verdana', sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px;">
+    <div style="max-width: 600px; margin: auto; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <h1 style="text-align: center; color: #495057;">Cálculo de Precios</h1>
+        <form action="/calculo_precios" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+            <label for="precio1">Precio de la camisa 1 (en dólares):</label>
+            <input type="text" id="precio1" name="precio1" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">
+
+            <label for="precio2">Precio de la camisa 2 (en dólares):</label>
+            <input type="text" id="precio2" name="precio2" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">
+
+            <label for="precio3">Precio de la camisa 3 (en dólares):</label>
+            <input type="text" id="precio3" name="precio3" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">
+
+            <label for="precio4">Precio de la camisa 4 (en dólares):</label>
+            <input type="text" id="precio4" name="precio4" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">
+
+            <label for="precio5">Precio de la camisa 5 (en dólares):</label>
+            <input type="text" id="precio5" name="precio5" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">
+
+            <input type="submit" value="Calcular Total" style="padding: 15px; background-color: #17a2b8; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+        </form>
+
+        {% if total_pesos %}
+            <h2 style="color: #333;">Resultado:</h2>
+            <p>El total de la venta en pesos es: <strong>{{ total_pesos }}</strong></p>
+        {% endif %}
+
+        {% if error %}
+            <h2 style="color: red;">Error: {{ error }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

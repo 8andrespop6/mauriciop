@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dobles y Triples</title>
+</head>
+<body style="font-family: 'Courier New', Courier, monospace; background-color: #f9f9f9; margin: 0; padding: 20px;">
+    <div style="max-width: 500px; margin: auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <h1 style="text-align: center; color: #333;">Dobles y Triples</h1>
+        <form action="/dobles_y_triples" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+            <label for="numero">Ingrese un número:</label>
+            <input type="text" id="numero" name="numero" required style="padding: 10px; border: 1px solid #bbb; border-radius: 5px; width: 100%;">
+
+            <input type="submit" value="Calcular" style="padding: 12px; background-color: #dc3545; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+        </form>
+
+        {% if doble and triple %}
+            <h2 style="color: #333;">Resultados:</h2>
+            <p>El doble del número es: <strong>{{ doble }}</strong></p>
+            <p>El triple del número es: <strong>{{ triple }}</strong></p>
+        {% endif %}
+
+        {% if error %}
+            <h2 style="color: red;">Error: {{ error }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

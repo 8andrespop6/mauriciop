@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir Calificaciones</title>
+</head>
+<body style="font-family: 'Arial', sans-serif; background-color: #f0f8ff; margin: 0; padding: 20px;">
+    <div style="max-width: 500px; margin: auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <h1 style="text-align: center; color: #333;">Convertir Calificaciones</h1>
+        <form action="/convertir_calificacion" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+            <label for="nota">Ingrese la calificación (1 a 20):</label>
+            <input type="text" id="nota" name="nota" required style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 100%;">
+
+            <input type="submit" value="Convertir" style="padding: 12px; background-color: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+        </form>
+
+        {% if letra %}
+            <h2 style="color: #333;">Resultado:</h2>
+            <p>La calificación en letra es: <strong>{{ letra }}</strong></p>
+        {% endif %}
+
+        {% if error %}
+            <h2 style="color: red;">Error: {{ error }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

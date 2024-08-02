@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparar Números</title>
+</head>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #e9ecef; margin: 0; padding: 20px;">
+    <div style="max-width: 600px; margin: auto; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <h1 style="text-align: center; color: #495057;">Comparar Números</h1>
+        <form action="/comparar_numeros" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+            <label for="a">Número A:</label>
+            <input type="text" id="a" name="a" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">
+
+            <label for="b">Número B:</label>
+            <input type="text" id="b" name="b" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">
+
+            <label for="c">Número C:</label>
+            <input type="text" id="c" name="c" required style="padding: 10px; border: 1px solid #ced4da; border-radius: 5px; width: 100%;">
+
+            <input type="submit" value="Enviar" style="padding: 15px; background-color: #007BFF; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+        </form>
+
+        {% if mayor is not none and menor is not none %}
+            <h2 style="color: #343a40;">Resultados:</h2>
+            <p>El número mayor es: <strong>{{ mayor }}</strong></p>
+            <p>El número menor es: <strong>{{ menor }}</strong></p>
+        {% endif %}
+
+        {% if error %}
+            <h2 style="color: red;">Error: {{ error }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
